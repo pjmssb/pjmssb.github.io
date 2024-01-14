@@ -103,8 +103,10 @@
       <hr style="width:200px" class="w3-opacity">
       <div class="w3-row">
         <div class="w3-col m6 l7">
-          <p>My passions, in order of importance, are my family (my 'ikigai'), exploring diverse countries and cultures,
-            and leveraging technology to solve real-world problems and drive business success.</p>
+          <p>Hi, I am Pablo Mogollón, a systems engineer working for large multinational, small niche companies, and
+            startups in different countries in America and Europe for the last 20 years. My passions, in order of
+            importance, are my family (my 'ikigai'), exploring diverse countries and cultures, and leveraging technology
+            to solve real-world problems and drive business success.</p>
           <p>I've earned several master’s degrees and have experience working in both large multinationals and
             specialized small companies across more than half a dozen countries. My expertise lies in developing and
             operating high-performance, highly-available platforms, and in the creation, development, and leadership of
@@ -292,7 +294,8 @@
   <div class="w3-padding-64 w3-content w3-text-grey" id="posts">
     <h2 class="w3-text-light-grey">Posts</h2>
     <hr style="width:200px" class="w3-opacity">
-    <p>Now and then I like to comment on my personal opinions on technical and organizational topics related to IT leadership </p>
+    <p>Now and then I like to comment on my personal opinions on technical and organizational topics related to IT
+      leadership </p>
     <ul>
       <li>
         <b class="w3-text-light-grey">Coronavirus, datos y responsabilidad</b>
@@ -357,7 +360,7 @@
     </div><br>
     <p>Let's get in touch. Send me a message:</p>
 
-    <form action="/action_page.php" target="_blank">
+    <form action="/action_page.php" method="post" target="_blank">
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
@@ -398,6 +401,12 @@
   <!-- END PAGE CONTENT -->
   </div>
   <script src="https://kit.fontawesome.com/38746afa52.js" crossorigin="anonymous"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+    }
+  </script>
 </body>
 
 </html>
