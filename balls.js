@@ -4,13 +4,14 @@ canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
 
 const balls = []; // Array to hold our ball objects
-const ballColors = ['black', 'black', 'black', 'black',  
+const ballColors = ['black', 'black', 'black', 'black',
+                    'black', 'black', 'black', 'black',
                     'white', 'white', 'white', 'white', 'white','white', 
                     'white', 'white', 'white', 'white', 'white','white', 
-                    'white', 'white', 'white', 'white', 'white','white', 
-                    'blue', 'red', 'green', 'purple', 'white','yellow',  
-                    'blue', 'red', 'green', 'purple', 'white','yellow',  
-                    'blue', 'red', 'green', 'purple', 'blawhiteck','yellow']; // Ball colors
+                    'grey', 'grey', 'grey', 'grey', 'grey','grey',  
+                    'grey', 'grey', 'grey', 'grey', 'grey','grey',    
+                    'silver', 'silver', 'silver', 'silver', 'silver','silver',  
+                    'silver', 'silver', 'silver', 'silver', 'silver','silver']; // Ball colors
 
 class Ball {
     constructor(color) {
