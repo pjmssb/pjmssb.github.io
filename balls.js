@@ -1,7 +1,7 @@
-const canvas = document.getElementById('ballscanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
+const balls_canvas = document.getElementById('ballscanvas');
+const balls_ctx = balls_canvas.getContext('2d');
+balls_canvas.width = balls_canvas.offsetWidth;
+balls_canvas.height = balls_canvas.offsetHeight;
 
 const balls = []; // Array to hold our ball objects
 const ballColors = ['black', 'black', 'black', 'black',
@@ -20,17 +20,17 @@ class Ball {
     }
 
     reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * balls_canvas.width;
+        this.y = Math.random() * balls_canvas.height;
         this.vx = (Math.random() - 0.5) * 10;
         this.vy = (Math.random() - 0.5) * 10;
     }
 
     draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-        ctx.fill();
+        balls_ctx.fillStyle = this.color;
+        balls_ctx.beginPath();
+        balls_ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+        balls_ctx.fill();
     }
 
     update() {
@@ -38,7 +38,7 @@ class Ball {
         this.y += this.vy;
 
         // Teleportation logic
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+        if (this.x < 0 || this.x > balls_canvas.width || this.y < 0 || this.y > balls_canvas.height) {
             this.reset();
         }
 
@@ -69,7 +69,7 @@ ballColors.forEach(color => {
 });
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    balls_ctx.clearRect(0, 0, balls_canvas.width, balls_canvas.height);
     balls.forEach(ball => {
         ball.update();       
         ball.draw();
@@ -79,6 +79,6 @@ function animate() {
     
 animate();
     
-    canvas.addEventListener('click', () => {
+    balls_canvas.addEventListener('click', () => {
     balls.forEach(ball => ball.reset());
 });

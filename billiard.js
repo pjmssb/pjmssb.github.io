@@ -1,26 +1,26 @@
-const canvas = document.getElementById('billiardCanvas');
-const ctx = canvas.getContext('2d');
+const billiard_canvas = document.getElementById('billiardCanvas');
+const billiard_ctx = billiard_canvas.getContext('2d');
 
-canvas.width = 800;
-canvas.height = 100;
+billiard_canvas.width = 800;
+billiard_canvas.height = 20;
 
-class Ball {
+class BilliardBall {
     constructor(color) {
-        this.radius = 10;
+        this.radius = 5;
         this.mass = 1; // Assuming equal mass for simplicity
-        this.x = Math.random() * (canvas.width - this.radius * 2) + this.radius;
-        this.y = Math.random() * (canvas.height - this.radius * 2) + this.radius;
+        this.x = Math.random() * (billiard_canvas.width - this.radius * 2) + this.radius;
+        this.y = Math.random() * (billiard_canvas.height - this.radius * 2) + this.radius;
         this.speedX = Math.random() * 4 - 2;
         this.speedY = Math.random() * 4 - 2;
         this.color = color;
     }
 
     draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-        ctx.closePath();
+        billiard_ctx.beginPath();
+        billiard_ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        billiard_ctx.fillStyle = this.color;
+        billiard_ctx.fill();
+        billiard_ctx.closePath();
     }
 
     move() {
@@ -28,24 +28,27 @@ class Ball {
         this.y += this.speedY;
 
         // Wall collision
-        if (this.x - this.radius <= 0 || this.x + this.radius >= canvas.width) {
+        if (this.x - this.radius <= 0 || this.x + this.radius >= billiard_canvas.width) {
             this.speedX = -this.speedX;
         }
-        if (this.y - this.radius <= 0 || this.y + this.radius >= canvas.height) {
+        if (this.y - this.radius <= 0 || this.y + this.radius >= billiard_canvas.height) {
             this.speedY = -this.speedY;
         }
     }
 }
 
-let balls = [
-    new Ball('white'),
-    new Ball('gray'),
-    new Ball('silver'),
-    new Ball('darkgray')
+let billiardballs = [
+    new BilliardBall('white'),
+    new BilliardBall('gray'),
+    new BilliardBall('silver'),
+    new BilliardBall('darkgray'),
+    new BilliardBall('gray'),
+    new BilliardBall('silver'),
+    new BilliardBall('darkgray')
 ];
 
 function increaseSpeed(color, increment) {
-    balls.forEach(ball => {
+    billiardballs.forEach(ball => {
         if (ball.color === color) {
             ball.speedX += ball.speedX > 0 ? increment : -increment;
             ball.speedY += ball.speedY > 0 ? increment : -increment;
@@ -84,14 +87,14 @@ function handleCollision(ball1, ball2) {
 }
 
 function updateGame() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < balls.length; i++) {
-        balls[i].move();
-        for (let j = i + 1; j < balls.length; j++) {
-            detectCollision(balls[i], balls[j]);
+    billiard_ctx.clearRect(0, 0, billiard_canvas.width, billiard_canvas.height);
+    for (let i = 0; i < billiardballs.length; i++) {
+        billiardballs[i].move();
+        for (let j = i + 1; j < billiardballs.length; j++) {
+            detectCollision(billiardballs[i], billiardballs[j]);
         }
     }
-    balls.forEach(ball => ball.draw());
+    billiardballs.forEach(ball => ball.draw());
     requestAnimationFrame(updateGame);
 }
 
