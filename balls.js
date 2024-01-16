@@ -1,4 +1,4 @@
-const canvas = document.getElementById('myCanvas');
+const canvas = document.getElementById('ballscanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
