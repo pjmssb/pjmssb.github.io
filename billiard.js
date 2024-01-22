@@ -6,7 +6,7 @@ billiard_canvas.height = 20;
 
 class BilliardBall {
     constructor(color) {
-        this.radius = 5;
+        this.radius = 3;
         this.mass = 1; // Assuming equal mass for simplicity
         this.x = Math.random() * (billiard_canvas.width - this.radius * 2) + this.radius;
         this.y = Math.random() * (billiard_canvas.height - this.radius * 2) + this.radius;
@@ -38,6 +38,13 @@ class BilliardBall {
 }
 
 let billiardballs = [
+    new BilliardBall('white'),
+    new BilliardBall('gray'),
+    new BilliardBall('silver'),
+    new BilliardBall('darkgray'),
+    new BilliardBall('gray'),
+    new BilliardBall('silver'),
+    new BilliardBall('darkgray'),
     new BilliardBall('white'),
     new BilliardBall('gray'),
     new BilliardBall('silver'),
