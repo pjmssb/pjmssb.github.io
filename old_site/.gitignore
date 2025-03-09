@@ -23,3 +23,6 @@ build/
 docs/.
 .DS_Store
 .vscode/
+/old_site
+/old_site/.gitignore
+/old_site/docs/
